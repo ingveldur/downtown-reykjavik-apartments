@@ -1,0 +1,13 @@
+{
+  "name": "downtown-reykjavik-apartments",
+  "scripts": {
+    "dev": "nuxt"
+  },
+  "dependencies": {
+    "@nuxtjs/dotenv": "^1.4.0",
+    "contentful": "^7.9.1",
+    "nuxt": "^2.9.2",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0"
+  }
+}
