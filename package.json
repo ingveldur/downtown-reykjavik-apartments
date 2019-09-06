@@ -1,7 +1,8 @@
 {
   "name": "downtown-reykjavik-apartments",
   "scripts": {
-    "dev": "nuxt"
+    "dev": "nuxt",
+    "generate": "nuxt generate"
   },
   "dependencies": {
     "@nuxtjs/dotenv": "^1.4.0",
