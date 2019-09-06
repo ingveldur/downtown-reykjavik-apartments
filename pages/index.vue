@@ -4,6 +4,9 @@
     <main class="main">
       <div class="main-title">{{home.title}}</div>
       <div class="main-description">{{home.description}}</div>
+      <no-ssr placeholder="loading...">
+        <HotelDatePicker />
+      </no-ssr>
     </main>
     <BookingWidget />
   </div>
@@ -11,13 +14,15 @@
 
 <script>
 import contentful from "~/plugins/contentful.js";
+import HotelDatePicker from "~/plugins/hotel-datepicker.js";
 import Header from "~/components/header.vue";
 import BookingWidget from "~/components/booking-widget.vue";
 
 export default {
   components: {
     Header,
-    BookingWidget
+    BookingWidget,
+    HotelDatePicker
   },
   head: {
     // TODO fill out carefully
@@ -29,6 +34,12 @@ export default {
         content: "Dra page description"
       }
     ]
+  },
+  mounted() {
+    console.log();
+  },
+  data: function() {
+    return {};
   },
   async asyncData() {
     const header = await contentful.getEntries({

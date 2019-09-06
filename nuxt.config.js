@@ -24,5 +24,9 @@ export default {
   env: {
     CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
     CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN
+  },
+  plugins: [{ src: "~/plugins/hotel-datepicker", ssr: false }],
+  build: {
+    vendor: ["hotel-datepicker"]
   }
 };
