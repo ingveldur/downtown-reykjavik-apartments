@@ -5,6 +5,7 @@
         <label>Check in</label>
         <div>
           <input
+            type="date"
             placeholder="Check-in"
             data-check-in="1"
             readonly
@@ -18,6 +19,7 @@
         <label>Check out</label>
         <div>
           <input
+            type="date"
             placeholder="Check-out"
             data-check-out="1"
             readonly
@@ -38,6 +40,7 @@
             data-translate-min="guestSelect"
             data-translate-other="guestsSelect"
           >
+            <!-- loop through array rather... -->
             <option value="1">1 Guest</option>
             <option value="2">2 Guests</option>
             <option value="3">3 Guests</option>
@@ -81,6 +84,7 @@ export default {};
     display: flex;
     align-items: flex-end;
     margin: auto;
+
     label {
       font-style: normal;
       font-weight: 600;
@@ -88,13 +92,18 @@ export default {};
       line-height: 15px;
       text-transform: uppercase;
     }
+
     &-checkin {
       display: block;
+      margin-right: 21px;
     }
     &-checkout {
+      margin-right: 21px;
     }
+
     &-guests {
       display: block;
+      margin-right: 21px;
     }
     &-submit {
     }

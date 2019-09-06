@@ -12,7 +12,7 @@
 <script>
 import contentful from "~/plugins/contentful.js";
 import Header from "~/components/header.vue";
-import BookingWidget from "~/components/bookingWidget.vue";
+import BookingWidget from "~/components/booking-widget.vue";
 
 export default {
   components: {
