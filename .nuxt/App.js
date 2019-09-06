@@ -3,14 +3,12 @@ import { getMatchedComponentsInstances, promisify, globalHandleError } from './u
 import NuxtLoading from './components/nuxt-loading.vue'
 import NuxtBuildIndicator from './components/nuxt-build-indicator'
 
-import '../static/css/main.scss'
-
 import _6f6c098b from '../layouts/default.vue'
 
 const layouts = { "_default": _6f6c098b }
 
 export default {
-  head: {"titleTemplate":"%s - Nuxt.js","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial scale=1"},{"hid":"description","name":"description","content":"Meta description"}],"link":[],"style":[],"script":[]},
+  head: {"titleTemplate":"%s","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial scale=1"},{"hid":"description","name":"description","content":"Meta description"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"favicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Montserrat:300,400,500,700&display=swap"}],"style":[],"script":[]},
 
   render(h, props) {
     const loadingEl = h('NuxtLoading', { ref: 'loading' })

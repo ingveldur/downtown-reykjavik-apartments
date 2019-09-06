@@ -8,7 +8,7 @@ export default {};
 
 <style lang="scss">
 body {
-  margin: 36px;
+  margin: 0;
   font-family: "Montserrat", sans-serif;
 }
 </style>
