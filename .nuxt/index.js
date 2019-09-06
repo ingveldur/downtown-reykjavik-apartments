@@ -12,6 +12,7 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 /* Plugins */
 
 import nuxt_plugin_hoteldatepicker_7cd9beeb from 'nuxt_plugin_hoteldatepicker_7cd9beeb' // Source: ../plugins/hotel-datepicker (mode: 'client')
+import nuxt_plugin_flatpickr_2d9eb1e2 from 'nuxt_plugin_flatpickr_2d9eb1e2' // Source: ../plugins/flatpickr (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -143,6 +144,10 @@ async function createApp(ssrContext) {
 
   if (process.client && typeof nuxt_plugin_hoteldatepicker_7cd9beeb === 'function') {
     await nuxt_plugin_hoteldatepicker_7cd9beeb(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_flatpickr_2d9eb1e2 === 'function') {
+    await nuxt_plugin_flatpickr_2d9eb1e2(app.context, inject)
   }
 
   // If server-side, wait for async component to be resolved first

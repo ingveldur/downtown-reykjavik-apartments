@@ -8,7 +8,7 @@ import _6f6c098b from '../layouts/default.vue'
 const layouts = { "_default": _6f6c098b }
 
 export default {
-  head: {"titleTemplate":"%s","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial scale=1"},{"hid":"description","name":"description","content":"Meta description"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"favicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Montserrat:300,400,500,700&display=swap"}],"style":[],"script":[]},
+  head: {"titleTemplate":"%s","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial scale=1"},{"hid":"description","name":"description","content":"Meta description"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"favicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Montserrat:300,400,500,700&display=swap"},{"rel":"stylesheet","href":"https:\u002F\u002Funpkg.com\u002Fionicons@4.5.10-0\u002Fdist\u002Fcss\u002Fionicons.min.css"}],"style":[],"script":[]},
 
   render(h, props) {
     const loadingEl = h('NuxtLoading', { ref: 'loading' })

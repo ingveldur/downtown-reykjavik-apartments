@@ -4,9 +4,6 @@
     <main class="main">
       <div class="main-title">{{home.title}}</div>
       <div class="main-description">{{home.description}}</div>
-      <no-ssr placeholder="loading...">
-        <HotelDatePicker />
-      </no-ssr>
     </main>
     <BookingWidget />
   </div>
@@ -14,7 +11,8 @@
 
 <script>
 import contentful from "~/plugins/contentful.js";
-import HotelDatePicker from "~/plugins/hotel-datepicker.js";
+import flatPickr from "~/plugins/flatpickr.js";
+
 import Header from "~/components/header.vue";
 import BookingWidget from "~/components/booking-widget.vue";
 
@@ -22,7 +20,7 @@ export default {
   components: {
     Header,
     BookingWidget,
-    HotelDatePicker
+    flatPickr
   },
   head: {
     // TODO fill out carefully
@@ -35,9 +33,7 @@ export default {
       }
     ]
   },
-  mounted() {
-    console.log();
-  },
+  mounted() {},
   data: function() {
     return {};
   },
@@ -61,7 +57,7 @@ export default {
 
 <style lang="scss">
 body {
-  background-image: url("../static/images/reykjavik-wallpaper.png");
+  background-image: url("../static/images/reykjavik-wallpaper.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

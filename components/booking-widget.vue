@@ -4,29 +4,30 @@
       <div class="footer-form-checkin">
         <label>Check in</label>
         <div>
-          <input
-            type="date"
+          <flat-pickr
+            v-model="checkInDate"
+            :config="config"
             placeholder="Check-in"
-            data-check-in="1"
-            readonly
-            data-translate="1"
-            id="booking-strip-checkin-1"
-          />
-          <i class="icon-book-calendar"></i>
+            name="checkInDate"
+          ></flat-pickr>
+
+          <i class="icon ion-md-calendar"></i>
         </div>
       </div>
       <div class="footer-form-checkout">
         <label>Check out</label>
-        <div>
-          <input
-            type="date"
+        <div class="foo">
+          <flat-pickr
+            class
+            v-model="checkOutDate"
+            :config="config"
             placeholder="Check-out"
-            data-check-out="1"
-            readonly
-            data-translate="1"
-            id="booking-strip-checkout-2"
-          />
-          <i class="icon-book-calendar"></i>
+            name="checkOutDate"
+          >
+            <i class="icon ion-md-calendar"></i>
+          </flat-pickr>
+
+          <i class="icon ion-md-calendar"></i>
         </div>
       </div>
       <div class="footer-form-guests">
@@ -55,12 +56,10 @@
         </div>
       </div>
       <div class="footer-form-submit">
-        <div>
-          <button type="submit">Book Now</button>
-        </div>
+        <button type="submit">Book Now</button>
       </div>
-      <input type="hidden" name="checkin" id="alt-checkin-0" value="2019-09-19" />
-      <input type="hidden" name="checkout" id="alt-checkout-1" value="2019-09-20" />
+      <input type="hidden" name="checkin" id="alt-checkin-0" v-bind:value="checkInDate" />
+      <input type="hidden" name="checkout" id="alt-checkout-1" v-bind:value="checkOutDate" />
       <input type="hidden" name="propid" value="38385" />
       <input type="hidden" name="lang" value="en" />
     </form>
@@ -68,7 +67,26 @@
 </template>
 
 <script>
-export default {};
+let tomorrow = new Date();
+tomorrow.setDate(tomorrow.getDate() + 1);
+
+let yearFromNow = new Date();
+yearFromNow.setDate(yearFromNow.getDate() + 365);
+
+export default {
+  data() {
+    return {
+      checkInDate: new Date(),
+      checkOutDate: tomorrow,
+      config: {
+        dateFormat: "d.m.Y",
+        minDate: "today",
+        wrap: true,
+        maxDate: yearFromNow
+      }
+    };
+  }
+};
 </script>
 
 <style lang="scss" >
@@ -101,11 +119,57 @@ export default {};
       margin-right: 21px;
     }
 
+    &-checkin,
+    &-checkout {
+      input {
+        width: 186px;
+        height: 32px;
+        background: #ffffff;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 6px;
+        border: none;
+        padding: 0 18px;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 15px;
+        font-family: "Montserrat", sans-serif;
+      }
+    }
+
     &-guests {
       display: block;
       margin-right: 21px;
+      select {
+        width: 94px;
+        height: 32px;
+
+        background: #ffffff;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 6px;
+        border: none;
+      }
     }
+
     &-submit {
+      button {
+        width: 94px;
+        height: 32px;
+
+        background: #eb3323;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 6px;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: white;
+        font-family: "Montserrat", sans-serif;
+      }
+    }
+
+    .ion-md-calendar:before {
+      transform: translateX(-30px);
     }
   }
 }
