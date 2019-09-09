@@ -134,11 +134,18 @@ export default {
     }
 
     &-item {
-      margin: 21px 21px 0;
+      margin: 40px 21px 0;
+      width: 300px;
+      max-width: 100%;
+      padding: 21px;
+      box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
 
       @media screen and (max-width: 768px) {
-        margin: 0 0 60px;
+        margin: 0 30px 60px;
+        padding: 16px;
         width: 100%;
+        max-width: 300px;
       }
 
       &-image {
