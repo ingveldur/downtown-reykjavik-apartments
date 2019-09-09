@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <Header />
     <main class="main">
       <div class="main-title">{{home.title}}</div>
       <div class="main-description">{{home.description}}</div>
@@ -9,6 +10,7 @@
 </template>
 
 <script>
+import Header from "~/components/header.vue";
 import contentful from "~/plugins/contentful.js";
 import flatPickr from "~/plugins/flatpickr.js";
 
@@ -16,6 +18,7 @@ import BookingWidget from "~/components/booking-widget.vue";
 
 export default {
   components: {
+    Header,
     BookingWidget,
     flatPickr
   },
