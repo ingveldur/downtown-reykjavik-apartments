@@ -1,0 +1,2 @@
+exports.ids=[1],exports.modules={47:function(t,e,r){"use strict";r.r(e);var n=r(1),component=Object(n.a)({},function(){var t=this.$createElement;return(this._self._c||t)("div",{staticClass:"container"},[this._ssrNode("<h1>Awards page</h1>")])},[],!1,null,null,"260b72c4");e.default=component.exports}};
+//# sourceMappingURL=a254ccac5fdac6025662.js.map

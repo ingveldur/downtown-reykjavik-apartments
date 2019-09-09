@@ -1,14 +1,13 @@
 import Vue from 'vue'
 import { getMatchedComponentsInstances, promisify, globalHandleError } from './utils'
 import NuxtLoading from './components/nuxt-loading.vue'
-import NuxtBuildIndicator from './components/nuxt-build-indicator'
 
 import _6f6c098b from '../layouts/default.vue'
 
 const layouts = { "_default": _6f6c098b }
 
 export default {
-  head: {"titleTemplate":"%s","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial scale=1"},{"hid":"description","name":"description","content":"Meta description"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"favicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Montserrat:300,400,500,700&display=swap"},{"rel":"stylesheet","href":"https:\u002F\u002Funpkg.com\u002Fionicons@4.5.10-0\u002Fdist\u002Fcss\u002Fionicons.min.css"}],"style":[],"script":[]},
+  head: {"titleTemplate":"%s","title":"DRA ehf.","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial scale=1"},{"hid":"description","name":"description","content":"Self-catering apartments in the heart of Reykjavik, homepage and booking portal"},{"hid":"keywords","name":"keywords","content":"Reykjavik,Iceland,Hotel,Apartments,Rooms,Lodging,Rent,Booking,Portal"},{"hid":"copyright","name":"copyright","content":"Downtown Reykjavik Apartments"},{"hid":"author","name":"author","content":"Ingveldur Dis Heidarsdottir"},{"hid":"designer","name":"designer","content":"Ingveldur Dis Heidarsdottir"},{"hid":"url","name":"url","content":"http:\u002F\u002Fdra.is"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"favicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Montserrat:300,400,500,700&display=swap"},{"rel":"stylesheet","href":"https:\u002F\u002Funpkg.com\u002Fionicons@4.5.10-0\u002Fdist\u002Fcss\u002Fionicons.min.css"}],"style":[],"script":[]},
 
   render(h, props) {
     const loadingEl = h('NuxtLoading', { ref: 'loading' })
@@ -39,7 +38,7 @@ export default {
       domProps: {
         id: '__nuxt'
       }
-    }, [loadingEl, h(NuxtBuildIndicator), transitionEl])
+    }, [loadingEl, transitionEl])
   },
   data: () => ({
     isOnline: true,
@@ -134,8 +133,6 @@ export default {
     },
 
     setLayout(layout) {
-      if(layout && typeof layout !== 'string') throw new Error('[nuxt] Avoid using non-string value as layout property.')
-
       if (!layout || !layouts['_' + layout]) {
         layout = 'default'
       }

@@ -2,11 +2,43 @@ require("dotenv").config();
 export default {
   head: {
     titleTemplate: "%s",
+    title: "DRA ehf.",
+
     meta: [
-      // Each object in this array is its own meta tag
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial scale=1" },
-      { hid: "description", name: "description", content: "Meta description" }
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Self-catering apartments in the heart of Reykjavik, homepage and booking portal"
+      },
+      {
+        hid: "keywords",
+        name: "keywords",
+        content:
+          "Reykjavik,Iceland,Hotel,Apartments,Rooms,Lodging,Rent,Booking,Portal"
+      },
+      {
+        hid: "copyright",
+        name: "copyright",
+        content: "Downtown Reykjavik Apartments"
+      },
+      {
+        hid: "author",
+        name: "author",
+        content: "Ingveldur Dis Heidarsdottir"
+      },
+      {
+        hid: "designer",
+        name: "designer",
+        content: "Ingveldur Dis Heidarsdottir"
+      },
+      {
+        hid: "url",
+        name: "url",
+        content: "http://dra.is"
+      }
     ],
     link: [
       {
@@ -29,11 +61,9 @@ export default {
     CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
     CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN
   },
-  plugins: [
-    { src: "~/plugins/hotel-datepicker", ssr: false },
-    { src: "~/plugins/flatpickr", ssr: false }
-  ],
+  plugins: [{ src: "~/plugins/flatpickr", ssr: false }],
   build: {
-    vendor: ["hotel-datepicker", "flatpickr"]
-  }
+    vendor: ["flatpickr"]
+  },
+  buildModules: ["@nuxtjs/moment"]
 };
