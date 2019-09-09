@@ -17,6 +17,12 @@
           v-bind:key="link.fields.id"
           v-bind:to="link.fields.url"
         >{{link.fields.label}}</NuxtLink>-->
+        <NuxtLink
+          v-bind:class="`${getClass()} header-center-link`"
+          v-for="link in header.links.filter(l => l.fields.id === 'awards')"
+          v-bind:key="link.fields.id"
+          v-bind:to="link.fields.url"
+        >{{link.fields.label}}</NuxtLink>
         <a
           v-bind:class="`${getClass()} header-center-link`"
           v-bind:href="header.links.find(l => l.fields.id === 'tours').fields.url"
@@ -54,7 +60,7 @@ export default {
   },
   methods: {
     getClass() {
-      return this.$route.name === "index" ? "home" : "";
+      return this.$route.name === "index" ? "at-home" : "";
     },
     getLogo() {
       return this.$route.name === "index"
@@ -87,7 +93,12 @@ export default {
 <style lang="scss" scoped>
 .header {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  margin: 36px 36px 0 36px;
+
+  @media screen and (max-width: 768px) {
+    margin: 18px 18px 0 18px;
+  }
 
   &-left {
     display: flex;
@@ -138,7 +149,7 @@ export default {
   }
 
   &-right {
-    margin: 0 0 0 auto;
+    margin: auto 0 auto auto;
     display: flex;
     align-items: center;
     font-style: normal;
@@ -172,12 +183,12 @@ export default {
     }
   }
 }
-a.home,
-.home.header-right-link a {
+a.at-home,
+.at-home.header-right-link a {
   color: white;
 }
 
-.home.header-right-link a img {
+.at-home.header-right-link a img {
   filter: invert(1);
 }
 </style>

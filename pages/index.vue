@@ -1,9 +1,9 @@
 <template>
-  <div class="container">
+  <div class="home-container">
     <Header />
-    <main class="main">
-      <div class="main-title">{{home.title}}</div>
-      <div class="main-description">{{home.description}}</div>
+    <main class="home">
+      <div class="home-title">{{home.title}}</div>
+      <div class="home-description">{{home.description}}</div>
     </main>
     <BookingWidget v-if="!loading" />
   </div>
@@ -23,11 +23,7 @@ export default {
     flatPickr
   },
   mounted() {
-    if (process.browser) {
-      window.onNuxtReady(app => {
-        this.loading = false;
-      });
-    }
+    this.loading = false;
   },
   data: function() {
     return {
@@ -54,24 +50,20 @@ export default {
 
 
 <style lang="scss">
-body {
+.home-container {
+  position: relative;
+  min-height: 100vh;
+  padding: 0.05px;
   background-image: url("../static/images/reykjavik-hd.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
-  transition: opacity 2s ease-in;
   width: 100vw;
 }
 
-.container {
-  position: relative;
-  min-height: 100vh;
-  padding: 0.05px;
-}
-
-.main {
-  margin-top: 36px;
+.home {
   color: white;
+  margin: 36px 36px 0 36px;
 
   @media screen and (max-width: 768px) {
     margin-top: 54px;
@@ -106,16 +98,11 @@ body {
     max-width: 100%;
 
     @media screen and (max-width: 768px) {
-      margin: 8px auto 0;
+      margin: 12px auto 0;
       font-size: 12px;
       line-height: 16px;
       text-align: center;
     }
   }
-}
-
-.header,
-.main {
-  margin: 36px 36px 0 36px;
 }
 </style>

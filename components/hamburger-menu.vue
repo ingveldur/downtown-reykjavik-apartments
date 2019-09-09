@@ -2,6 +2,8 @@
   <div>
     <div class="hamburger-menu">
       <a href="javascript:void(0)" class="hamburger-menu-close" @click="close">&times;</a>
+
+      <NuxtLink class="hamburger-menu-link" to="/">Home</NuxtLink>
       <!--
       <NuxtLink
         class="hamburger-menu-link"
@@ -9,6 +11,13 @@
         v-bind:key="link.fields.id"
         v-bind:to="link.fields.url"
       >{{link.fields.label}}</NuxtLink>-->
+
+      <NuxtLink
+        class="hamburger-menu-link"
+        v-for="link in header.links.filter(l => l.fields.id === 'awards')"
+        v-bind:key="link.fields.id"
+        v-bind:to="link.fields.url"
+      >{{link.fields.label}}</NuxtLink>
       <a
         class="hamburger-menu-link"
         v-bind:href="header.links.find(l => l.fields.id === 'tours').fields.url"
@@ -109,9 +118,9 @@ export default {
 
       span {
         display: block;
-        width: 28px;
-        height: 3px;
-        margin-bottom: 6px;
+        width: 24px;
+        height: 2px;
+        margin-bottom: 4px;
         position: relative;
         background: black;
         border-radius: 3px;
@@ -124,7 +133,7 @@ export default {
   }
 }
 
-.home.hamburger-menu-button span {
+.at-home.hamburger-menu-button span {
   background: white;
 }
 </style>
