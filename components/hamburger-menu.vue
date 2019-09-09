@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <button class="hamburger-menu-button" @click="open">
+    <button v-bind:class="`${this.currentRoute} hamburger-menu-button`" @click="open">
       <span></span>
       <span></span>
       <span></span>
@@ -39,7 +39,7 @@
 
 <script>
 export default {
-  props: ["header"],
+  props: ["header", "currentRoute"],
   methods: {
     open: function() {
       document.querySelector(".hamburger-menu").style.width = "250px";
@@ -113,7 +113,7 @@ export default {
         height: 3px;
         margin-bottom: 6px;
         position: relative;
-        background: white;
+        background: black;
         border-radius: 3px;
 
         &:last-child {
@@ -122,5 +122,9 @@ export default {
       }
     }
   }
+}
+
+.home.hamburger-menu-button span {
+  background: white;
 }
 </style>

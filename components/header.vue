@@ -2,7 +2,7 @@
   <div>
     <header class="header" v-if="header">
       <div class="header-left">
-        <HamburgerMenu :header="header" />
+        <HamburgerMenu :header="header" :currentRoute="getClass()" />
         <a v-bind:href="'/'">
           <img v-bind:src="getLogo()" />
         </a>
@@ -11,13 +11,12 @@
         <a v-bind:href="'/'">
           <img v-bind:src="getLogo()" />
         </a>
-        <!-- TODO: comment out before release -->
-        <NuxtLink
+        <!-- <NuxtLink
           v-bind:class="`${getClass()} header-center-link`"
           v-for="link in header.links.filter(l => l.fields.id !== 'tours' && l.fields.id !== 'tripadvisor')"
           v-bind:key="link.fields.id"
           v-bind:to="link.fields.url"
-        >{{link.fields.label}}</NuxtLink>
+        >{{link.fields.label}}</NuxtLink>-->
         <a
           v-bind:class="`${getClass()} header-center-link`"
           v-bind:href="header.links.find(l => l.fields.id === 'tours').fields.url"
@@ -121,8 +120,6 @@ export default {
       text-transform: uppercase;
       color: black;
 
-      //color: white;
-
       &:last-child {
         margin-right: 0;
       }
@@ -174,14 +171,13 @@ export default {
       display: none;
     }
   }
+}
+a.home,
+.home.header-right-link a {
+  color: white;
+}
 
-  a.home,
-  .home.header-right-link a {
-    color: white;
-  }
-
-  .home.header-right-link a img {
-    filter: invert(1);
-  }
+.home.header-right-link a img {
+  filter: invert(1);
 }
 </style>
