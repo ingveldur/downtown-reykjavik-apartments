@@ -1,4 +1,4 @@
-# downtown-reykjavik-apartments
+# Downtown Reykjavík Apartments
 
 - A website and GoDo booking portal for Downtown Reykjavík Apartments, coded in Nuxtjs framework
 - All content is managed using Contenful CMS
