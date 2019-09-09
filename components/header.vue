@@ -4,36 +4,37 @@
       <div class="header-left">
         <HamburgerMenu :header="header" />
         <a v-bind:href="'/'">
-          <img v-bind:src="header.logo.fields.file.url" />
+          <img v-bind:src="getLogo()" />
         </a>
       </div>
       <div class="header-center">
         <a v-bind:href="'/'">
-          <img v-bind:src="header.logo.fields.file.url" />
+          <img v-bind:src="getLogo()" />
         </a>
-        <!-- <NuxtLink
-          class="header-center-link"
+        <!-- TODO: comment out before release -->
+        <NuxtLink
+          v-bind:class="`${getClass()} header-center-link`"
           v-for="link in header.links.filter(l => l.fields.id !== 'tours' && l.fields.id !== 'tripadvisor')"
           v-bind:key="link.fields.id"
           v-bind:to="link.fields.url"
-        >{{link.fields.label}}</NuxtLink>-->
+        >{{link.fields.label}}</NuxtLink>
         <a
-          class="header-center-link"
+          v-bind:class="`${getClass()} header-center-link`"
           v-bind:href="header.links.find(l => l.fields.id === 'tours').fields.url"
         >{{header.links.find(l => l.fields.id === 'tours').fields.label}}</a>
         <a
-          class="header-center-link"
+          v-bind:class="`${getClass()} header-center-link`"
           v-bind:href="header.links.find(l => l.fields.id === 'tripadvisor').fields.url"
         >{{header.links.find(l => l.fields.id === 'tripadvisor').fields.label}}</a>
       </div>
       <div class="header-right">
-        <div class="header-right-link">
+        <div v-bind:class="`${getClass()} header-right-link`">
           <a v-bind:href="'mailto:' + header.email.fields.url">
             <img v-bind:src="header.email.fields.icon.fields.file.url" />
             {{header.email.fields.label}}
           </a>
         </div>
-        <div class="header-right-link">
+        <div v-bind:class="`${getClass()} header-right-link`">
           <a v-bind:href="'tel:' + header.phone.fields.url">
             <img v-bind:src="header.phone.fields.icon.fields.file.url" />
             {{header.phone.fields.label}}
@@ -52,9 +53,22 @@ export default {
   components: {
     HamburgerMenu
   },
+  methods: {
+    getClass() {
+      return this.$route.name === "index" ? "home" : "";
+    },
+    getLogo() {
+      return this.$route.name === "index"
+        ? this.header.logos.find(l => l.fields.title === "dra-logo-white")
+            .fields.file.url
+        : this.header.logos.find(l => l.fields.title === "dra-logo").fields.file
+            .url;
+    }
+  },
   data: function() {
     return {
-      header: null
+      header: null,
+      currentRoute: ""
     };
   },
   async created() {
@@ -64,6 +78,9 @@ export default {
     });
 
     this.header = header.items[0].fields;
+  },
+  mounted() {
+    this.currentRoute = this.$route.name;
   }
 };
 </script>
@@ -77,10 +94,6 @@ export default {
     display: flex;
     align-items: baseline;
     margin: 0 auto 0 0;
-
-    img {
-      filter: invert(1);
-    }
 
     @media screen and (max-width: 1100px) {
       margin: 0;
@@ -96,7 +109,6 @@ export default {
 
     img {
       display: none;
-      filter: invert(1);
     }
 
     &-link {
@@ -107,7 +119,9 @@ export default {
       font-size: 13px;
       line-height: 16px;
       text-transform: uppercase;
-      color: white;
+      color: black;
+
+      //color: white;
 
       &:last-child {
         margin-right: 0;
@@ -142,14 +156,16 @@ export default {
 
       a {
         text-decoration: none;
-        color: white;
+        color: black;
         display: flex;
         align-items: center;
 
         img {
           width: 22px;
           margin-right: 8px;
-          filter: invert(1);
+
+          filter: invert(26%) sepia(89%) saturate(2647%) hue-rotate(348deg)
+            brightness(93%) contrast(97%);
         }
       }
     }
@@ -157,6 +173,15 @@ export default {
     @media screen and (max-width: 1100px) {
       display: none;
     }
+  }
+
+  a.home,
+  .home.header-right-link a {
+    color: white;
+  }
+
+  .home.header-right-link a img {
+    filter: invert(1);
   }
 }
 </style>

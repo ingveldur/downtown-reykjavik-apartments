@@ -115,43 +115,4 @@ body {
 .main {
   margin: 36px 36px 0 36px;
 }
-
-////
-
-.loading-page {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 1);
-  text-align: center;
-  font-size: 30px;
-  font-family: sans-serif;
-}
-
-.loader {
-  border: 10px solid #f3f3f3;
-  border-top: 10px solid #eb3323;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  -webkit-animation: spin 1s linear infinite;
-  animation: spin 1s linear infinite;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  left: 0;
-  right: 0;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 </style>
