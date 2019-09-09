@@ -1,2 +1,0 @@
-exports.ids=[4],exports.modules={46:function(t,e,r){"use strict";r.r(e);var c=r(1),component=Object(c.a)({},function(){var t=this.$createElement;return(this._self._c||t)("div",{staticClass:"container"},[this._ssrNode("<h1>Location page</h1>")])},[],!1,null,null,"69eca3c3");e.default=component.exports}};
-//# sourceMappingURL=b564dc7e260505849373.js.map

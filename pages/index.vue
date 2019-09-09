@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <Header :header="header" />
     <main class="main">
       <div class="main-title">{{home.title}}</div>
       <div class="main-description">{{home.description}}</div>
@@ -13,15 +12,11 @@
 import contentful from "~/plugins/contentful.js";
 import flatPickr from "~/plugins/flatpickr.js";
 
-import Header from "~/components/header.vue";
 import BookingWidget from "~/components/booking-widget.vue";
-import HamburgerMenu from "~/components/hamburger-menu.vue";
 
 export default {
   components: {
-    Header,
     BookingWidget,
-    HamburgerMenu,
     flatPickr
   },
   mounted() {
@@ -36,17 +31,18 @@ export default {
       loading: true
     };
   },
+
   async asyncData() {
-    const header = await contentful.getEntries({
-      content_type: "header",
-      include: 3
-    });
-    const home = await contentful.getEntries({
-      content_type: "page",
-      include: 3
-    });
+    const home = await contentful.getEntries(
+      Object.assign(
+        {
+          content_type: "page",
+          include: 3
+        },
+        { "fields.id": "home" }
+      )
+    );
     return {
-      header: header.items[0].fields,
       home: home.items[0].fields
     };
   }

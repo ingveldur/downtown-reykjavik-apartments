@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="header">
+    <header class="header" v-if="header">
       <div class="header-left">
         <HamburgerMenu :header="header" />
         <a v-bind:href="'/'">
@@ -45,12 +45,25 @@
 </template>
 
 <script>
+import contentful from "~/plugins/contentful.js";
 import HamburgerMenu from "~/components/hamburger-menu.vue";
 
 export default {
-  props: ["header"],
   components: {
     HamburgerMenu
+  },
+  data: function() {
+    return {
+      header: null
+    };
+  },
+  async created() {
+    const header = await contentful.getEntries({
+      content_type: "header",
+      include: 3
+    });
+
+    this.header = header.items[0].fields;
   }
 };
 </script>
