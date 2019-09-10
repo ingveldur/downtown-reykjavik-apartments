@@ -3,7 +3,6 @@ export default {
   head: {
     titleTemplate: "%s",
     title: "DRA ehf.",
-
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial scale=1" },
@@ -65,5 +64,9 @@ export default {
   build: {
     vendor: ["flatpickr"]
   },
-  buildModules: ["@nuxtjs/moment"]
+  buildModules: ["@nuxtjs/moment"],
+  loading: {
+    color: "#eb3323",
+    height: "5px"
+  }
 };
