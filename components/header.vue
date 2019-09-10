@@ -12,8 +12,8 @@
           <img v-bind:src="getLogo()" />
         </NuxtLink>
         <NuxtLink
-          v-bind:class="`${getClass()} header-center-link`"
           v-for="link in header.links.filter(l => l.fields.id !== 'tours' && l.fields.id !== 'tripadvisor')"
+          v-bind:class="`${getClass()} ${link.fields.id === $route.name ? 'selected-route' : ''} header-center-link`"
           v-bind:key="link.fields.id"
           v-bind:to="link.fields.url"
         >{{link.fields.label}}</NuxtLink>
@@ -194,5 +194,10 @@ a.at-home,
 
 .at-home.header-right-link a img {
   filter: invert(1);
+}
+
+.selected-route {
+  font-weight: 600;
+  color: #eb3323;
 }
 </style>
