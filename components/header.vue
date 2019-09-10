@@ -96,6 +96,7 @@ export default {
   align-items: flex-end;
   justify-content: space-between;
   margin: 26px 80px 0;
+  font-size: 12px;
 
   @media screen and (max-width: 768px) {
     margin: 18px 18px 0 18px;
@@ -127,7 +128,6 @@ export default {
       text-decoration: none;
       font-style: normal;
       font-weight: normal;
-      font-size: 13px;
       line-height: 16px;
       text-transform: uppercase;
       color: black;
@@ -161,7 +161,6 @@ export default {
     align-items: center;
     font-style: normal;
     font-weight: normal;
-    font-size: 13px;
     line-height: 13px;
     text-transform: uppercase;
 

@@ -273,4 +273,9 @@ export default {
     font-weight: 500;
   }
 }
+
+// flatpickr overrides
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  -webkit-appearance: none !important;
+}
 </style>
