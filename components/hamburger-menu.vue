@@ -130,6 +130,12 @@ export default {
         }
       }
     }
+
+    @media screen and (max-width: 768px) {
+      span {
+        width: 18px;
+      }
+    }
   }
 }
 

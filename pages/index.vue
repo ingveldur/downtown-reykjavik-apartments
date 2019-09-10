@@ -63,10 +63,10 @@ export default {
 
 .home {
   color: white;
-  margin: 36px 36px 0 36px;
+  margin: 70px 80px 0;
 
   @media screen and (max-width: 768px) {
-    margin-top: 54px;
+    margin: 50px 18px 0;
   }
 
   &-title {

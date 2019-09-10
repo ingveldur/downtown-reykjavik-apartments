@@ -94,7 +94,8 @@ export default {
 .header {
   display: flex;
   align-items: flex-end;
-  margin: 36px 36px 0 36px;
+  justify-content: space-between;
+  margin: 26px 80px 0;
 
   @media screen and (max-width: 768px) {
     margin: 18px 18px 0 18px;
@@ -122,7 +123,7 @@ export default {
     }
 
     &-link {
-      margin-right: 40px;
+      margin-right: 18px;
       text-decoration: none;
       font-style: normal;
       font-weight: normal;
@@ -146,6 +147,12 @@ export default {
         display: none;
       }
     }
+
+    @media screen and (max-width: 768px) {
+      img {
+        width: 130px;
+      }
+    }
   }
 
   &-right {
@@ -160,7 +167,7 @@ export default {
 
     &-link {
       align-items: center;
-      margin-right: 24px;
+      margin: 0 18px 0 0;
 
       a {
         text-decoration: none;
@@ -170,10 +177,14 @@ export default {
 
         img {
           width: 22px;
-          margin-right: 8px;
-
+          margin-right: 6px;
           filter: invert(26%) sepia(89%) saturate(2647%) hue-rotate(348deg)
             brightness(93%) contrast(97%);
+        }
+      }
+      &:last-child {
+        a img {
+          margin-right: 2px;
         }
       }
     }
