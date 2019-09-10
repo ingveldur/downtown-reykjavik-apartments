@@ -35,10 +35,11 @@ export default {
   float: left;
   width: -webkit-fill-available;
   max-width: 100%;
-  height: -webkit-fill-available;
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
+  min-height: 400px;
 }
 .hooper {
   height: 100%;
@@ -73,5 +74,9 @@ export default {
 
 .hooper-slide {
   width: 100% !important;
+}
+
+*:focus {
+  outline: none;
 }
 </style>

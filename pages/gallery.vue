@@ -113,7 +113,7 @@ export default {
   }
 
   &-carousel {
-    width: 800px;
+    width: 600px;
     max-width: 100%;
     margin: auto;
     padding: 20px;
