@@ -2,7 +2,6 @@
   <div>
     <div class="hamburger-menu">
       <a href="javascript:void(0)" class="hamburger-menu-close" @click="close">&times;</a>
-
       <NuxtLink class="hamburger-menu-link" to="/">Home</NuxtLink>
       <!--
       <NuxtLink

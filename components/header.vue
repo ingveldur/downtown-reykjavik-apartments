@@ -3,14 +3,14 @@
     <header class="header" v-if="header">
       <div class="header-left">
         <HamburgerMenu :header="header" :currentRoute="getClass()" />
-        <a v-bind:href="'/'">
+        <NuxtLink to="/">
           <img v-bind:src="getLogo()" />
-        </a>
+        </NuxtLink>
       </div>
       <div class="header-center">
-        <a v-bind:href="'/'">
+        <NuxtLink to="/">
           <img v-bind:src="getLogo()" />
-        </a>
+        </NuxtLink>
         <!-- <NuxtLink
           v-bind:class="`${getClass()} header-center-link`"
           v-for="link in header.links.filter(l => l.fields.id !== 'tours' && l.fields.id !== 'tripadvisor')"
