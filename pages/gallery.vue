@@ -5,7 +5,8 @@
       <div class="gallery-title">{{gallery.title}}</div>
       <div class="gallery-description">{{gallery.description}}</div>
       <div class="gallery-carousel">
-        <Carousel :images="images" />
+        <!-- <Carousel :images="images" /> -->
+        <Swiper :images="images" />
       </div>
     </main>
   </div>
@@ -15,12 +16,14 @@
 <script>
 import contentful from "~/plugins/contentful.js";
 import Header from "~/components/header.vue";
-import Carousel from "~/components/carousel.vue";
+import Swiper from "~/components/swiper.vue";
+// import Carousel from "~/components/carousel.vue";
 
 export default {
   components: {
     Header,
-    Carousel
+    Swiper
+    // Carousel
   },
   mounted() {
     this.loading = false;
@@ -112,15 +115,15 @@ export default {
     }
   }
 
-  &-carousel {
-    width: 600px;
-    max-width: 100%;
-    margin: auto;
-    padding: 20px;
+  // &-carousel {
+  //   width: 600px;
+  //   max-width: 100%;
+  //   margin: auto;
+  //   padding: 20px;
 
-    @media screen and (max-width: 768px) {
-      width: unset;
-    }
-  }
+  //   @media screen and (max-width: 768px) {
+  //     width: unset;
+  //   }
+  // }
 }
 </style>

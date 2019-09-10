@@ -60,7 +60,10 @@ export default {
     CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
     CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN
   },
-  plugins: [{ src: "~/plugins/flatpickr", ssr: false }],
+  plugins: [
+    { src: "~/plugins/flatpickr", ssr: false },
+    { src: "~/plugins/swiper.js", ssr: false }
+  ],
   build: {
     vendor: ["flatpickr"]
   },
@@ -68,5 +71,6 @@ export default {
   loading: {
     color: "#eb3323",
     height: "5px"
-  }
+  },
+  css: ["swiper/dist/css/swiper.css"]
 };
