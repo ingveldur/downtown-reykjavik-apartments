@@ -134,8 +134,8 @@ export default {
       width: 300px;
       max-width: 100%;
       padding: 21px;
-      box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.25);
-      border-radius: 6px;
+      // box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.25);
+      // border-radius: 6px;
 
       @media screen and (max-width: 768px) {
         margin: 0 30px 60px;
