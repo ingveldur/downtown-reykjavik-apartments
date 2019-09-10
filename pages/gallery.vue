@@ -113,7 +113,7 @@ export default {
   }
 
   &-swiper {
-    margin: 30px auto 0;
+    margin: 40px auto 0;
   }
 }
 </style>
