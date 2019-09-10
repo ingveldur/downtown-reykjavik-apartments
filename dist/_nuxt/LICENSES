@@ -34,6 +34,12 @@
     and limitations under the License.
     ***************************************************************************** */
 
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
 /*!
  * vue-no-ssr v1.1.1
  * (c) 2018-present egoist <0x142857@gmail.com>
@@ -45,9 +51,3 @@
  * (c) 2019-present egoist <0x142857@gmail.com>
  * Released under the MIT License.
  */
-
-/**
-  * Hopper 0.3.4
-  * (c) 2019
-    * @license MIT
-    */
