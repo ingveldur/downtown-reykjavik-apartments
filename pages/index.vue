@@ -88,7 +88,7 @@ export default {
   }
 
   &-description {
-    margin-top: 18px;
+    margin: 18px 0 0;
     font-style: normal;
     font-weight: 300;
     font-size: 16px;

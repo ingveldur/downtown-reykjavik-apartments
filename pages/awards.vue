@@ -74,12 +74,9 @@ export default {
 
 .awards {
   color: black;
-  width: 1300px;
-  max-width: 100%;
-  margin: 60px auto 0;
-
+  margin: 70px 80px 0;
   @media screen and (max-width: 768px) {
-    margin-top: 54px;
+    margin: 50px 18px 0;
   }
 
   &-title {
@@ -91,7 +88,6 @@ export default {
     text-transform: capitalize;
     width: 550px;
     max-width: 100%;
-    margin: 36px 36px 0 36px;
 
     @media screen and (max-width: 768px) {
       margin: auto;
@@ -109,7 +105,7 @@ export default {
     letter-spacing: 0.1em;
     width: 355px;
     max-width: 100%;
-    margin: 18px 36px 0 36px;
+    margin: 18px 0 0;
 
     @media screen and (max-width: 768px) {
       margin: 12px auto 0;
