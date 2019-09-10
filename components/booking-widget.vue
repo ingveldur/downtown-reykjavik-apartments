@@ -7,7 +7,7 @@
           <flat-pickr
             v-model="selectedDates"
             :config="config"
-            placeholder="Check-in and check-out"
+            placeholder="Check-in - Check-out"
             name="dates"
           ></flat-pickr>
           <a title="toggle" data-toggle>

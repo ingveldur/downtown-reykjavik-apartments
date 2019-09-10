@@ -24,9 +24,6 @@
 <script>
 import Header from "~/components/header.vue";
 import contentful from "~/plugins/contentful.js";
-import flatPickr from "~/plugins/flatpickr.js";
-
-import BookingWidget from "~/components/booking-widget.vue";
 
 export default {
   components: {
