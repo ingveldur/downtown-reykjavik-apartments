@@ -16,7 +16,7 @@ export default {
         hid: "keywords",
         name: "keywords",
         content:
-          "Reykjavik,Iceland,Hotel,Apartments,Rooms,Lodging,Rent,Booking,Portal"
+          "Reykjavik,Iceland,Hotel,Apartments,Rooms,Lodging,Rent,Booking portal"
       },
       {
         hid: "copyright",
@@ -70,7 +70,7 @@ export default {
   buildModules: ["@nuxtjs/moment"],
   loading: {
     color: "#eb3323",
-    height: "5px"
+    height: "3px"
   },
   css: ["swiper/dist/css/swiper.css"]
 };

@@ -1,12 +1,17 @@
 <template>
-  <!-- You can find this swiper instance object in current component by the "mySwiper"  -->
-  <div v-swiper:mySwiper="swiperOption">
+  <div v-swiper:swiper="swiperOption" style="height: auto">
     <div class="swiper-wrapper">
-      <div class="swiper-slide" v-for="image in images" v-bind:key="image.id">
-        <img :src="image.url" />
+      <div
+        class="swiper-slide"
+        v-for="image in images"
+        v-bind:key="image.id"
+        data-swiper-autoplay="2500"
+      >
+        <div class="swiper-image" v-bind:style="'background-image:url(' + image.url + ');'"></div>
       </div>
     </div>
-    <div class="swiper-pagination swiper-pagination-bullets"></div>
+    <div class="swiper-button-prev" slot="button-prev"></div>
+    <div class="swiper-button-next" slot="button-next"></div>
   </div>
 </template>
 
@@ -21,59 +26,52 @@ export default {
         slidesPerView: "auto",
         centeredSlides: true,
         spaceBetween: 50,
-        pagination: {
-          el: ".swiper-pagination",
-          dynamicBullets: true
-        },
-        on: {
-          slideChange() {
-            console.log("onSlideChangeEnd", this);
-          },
-          tap() {
-            console.log("onTap", this);
-          }
+        autoHeight: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
         }
       }
     };
   },
   mounted() {
-    console.log("app init", this);
-    setTimeout(() => {}, 3000);
-    console.log(
-      "This is current swiper instance object",
-      this.mySwiper,
-      "I will slideTo banners 3"
-    );
-    this.mySwiper.slideTo(3);
+    this.swiper.autoplay.start();
   }
 };
 </script>
 
 
-<style lang="scss" scoped>
-.my-swiper {
-  height: 300px;
-  width: 100%;
-  .swiper-slide {
-    text-align: center;
-    font-size: 38px;
-    font-weight: 700;
-    background-color: #eee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+<style lang="scss">
+.swiper {
+  &-wrapper {
+    max-width: 600px;
   }
-  .swiper-pagination {
-    > .swiper-pagination-bullet {
-      background-color: red;
+  &-image {
+    position: relative;
+    float: left;
+    width: -webkit-fill-available;
+    max-width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    min-height: 400px;
+    border-radius: 6px;
+  }
+
+  &-button {
+    &-next {
+      background-image: url("../static/images/arrow-forward.svg");
+    }
+
+    &-prev {
+      background-image: url("../static/images/arrow-backward.svg");
+    }
+
+    &-next,
+    &-prev {
+      filter: drop-shadow(2px 4px 6px black);
     }
   }
-}
-
-.swiper-wrapper {
-  max-width: 600px;
-}
-img {
-  width: 100%;
 }
 </style>
