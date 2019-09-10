@@ -53,7 +53,7 @@ export default {
   position: relative;
   min-height: 100vh;
   padding: 0.05px;
-  background-image: url("../static/images/reykjavik-hd.svg");
+  background-image: url("../static/images/reykjavik-wallpaper.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
