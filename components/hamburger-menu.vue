@@ -14,7 +14,7 @@
 
       <NuxtLink
         class="hamburger-menu-link"
-        v-for="link in header.links.filter(l => l.fields.id === 'awards')"
+        v-for="link in header.links.filter(l => l.fields.id === 'awards'  ||  l.fields.id === 'location')"
         v-bind:key="link.fields.id"
         v-bind:to="link.fields.url"
       >{{link.fields.label}}</NuxtLink>
