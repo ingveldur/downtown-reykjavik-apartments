@@ -114,7 +114,13 @@ export default {
 
   &-carousel {
     width: 800px;
+    max-width: 100%;
     margin: auto;
+    padding: 20px;
+
+    @media screen and (max-width: 768px) {
+      width: unset;
+    }
   }
 }
 </style>

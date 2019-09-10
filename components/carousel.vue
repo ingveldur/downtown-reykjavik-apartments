@@ -1,5 +1,6 @@
 <template>
-  <hooper :itemsToShow="1" :autoPlay="true" :playSpeed="3000">
+  <!-- :autoPlay="true" :playSpeed="3000" -->
+  <hooper :itemsToShow="1" :infiniteScroll="true">
     <slide v-for="image in images" v-bind:key="image.id">
       <div class="img" v-bind:style="'background-image:url(' + image.url + ');'"></div>
     </slide>
@@ -28,17 +29,49 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .img {
   position: relative;
   float: left;
-  width: 800px;
-  height: 500px;
-  background-position: 50% 50%;
+  width: -webkit-fill-available;
+  max-width: 100%;
+  height: -webkit-fill-available;
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
 }
 .hooper {
   height: 100%;
+}
+
+.hooper-indicator {
+  background-color: black !important;
+}
+
+.hooper-indicator:hover,
+.hooper-indicator.is-active {
+  background-color: #eb3323 !important;
+}
+
+.hooper-pagination {
+  position: unset;
+  right: unset;
+  transform: unset;
+  display: flex;
+  padding: 5px 10px;
+  width: fit-content;
+  margin: auto;
+}
+
+.hooper-prev {
+  transform: translate(-100%, -50%);
+}
+
+.hooper-next {
+  transform: translate(100%, -50%);
+}
+
+.hooper-slide {
+  width: 100% !important;
 }
 </style>
