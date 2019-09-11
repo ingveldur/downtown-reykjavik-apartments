@@ -67,6 +67,10 @@ export default {
   build: {
     vendor: ["flatpickr"]
   },
+  modules: ["@nuxtjs/markdownit"],
+  markdownit: {
+    injected: true
+  },
   buildModules: ["@nuxtjs/moment"],
   loading: {
     color: "#eb3323",

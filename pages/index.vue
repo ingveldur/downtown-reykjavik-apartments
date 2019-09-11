@@ -6,6 +6,13 @@
       <div class="home-description">{{home.description}}</div>
     </main>
     <BookingWidget v-if="!loading" />
+    <modal
+      v-if="voucher && showModal"
+      @close="showModal = false"
+      :title="voucher.fields.title"
+      :description="voucher.fields.description"
+      :couponCode="voucher.fields.voucherCode"
+    />
   </div>
 </template>
 
@@ -14,22 +21,41 @@ import contentful from "~/plugins/contentful.js";
 import flatPickr from "~/plugins/flatpickr.js";
 import Header from "~/components/header.vue";
 import BookingWidget from "~/components/booking-widget.vue";
+import modal from "~/components/modal.vue";
+import moment from "moment";
 
 export default {
   components: {
     Header,
     BookingWidget,
-    flatPickr
+    flatPickr,
+    modal
   },
   mounted() {
     this.loading = false;
+    this.showModal = this.shouldShowVoucher();
   },
   data: function() {
     return {
-      loading: true
+      loading: true,
+      showModal: false
     };
   },
+  methods: {
+    shouldShowVoucher: function() {
+      if (this.showVoucher && this.voucher) {
+        const today = moment();
+        const validFrom = moment(this.voucher.fields.validFrom);
+        const validTo = moment(this.voucher.fields.validTo);
 
+        return (
+          validFrom.isBefore(validTo) && today.isBetween(validFrom, validTo)
+        );
+      } else {
+        return false;
+      }
+    }
+  },
   async asyncData() {
     const home = await contentful.getEntries(
       Object.assign(
@@ -40,8 +66,21 @@ export default {
         { "fields.id": "home" }
       )
     );
+
+    const voucher = await contentful.getEntries(
+      Object.assign(
+        {
+          content_type: "activeVoucher",
+          include: 3
+        },
+        { "fields.id": "active-voucher" }
+      )
+    );
+
     return {
-      home: home.items[0].fields
+      home: home.items[0].fields,
+      voucher: voucher.items[0].fields.voucher,
+      showVoucher: voucher.items[0].fields.isVisible
     };
   }
 };
