@@ -1,9 +1,9 @@
 <template>
   <div class="location-container">
-    <Header />
+    <Header :header="header" />
     <main class="location">
-      <div class="location-title">{{location.title}}</div>
-      <div class="location-description">{{location.description}}</div>
+      <div class="location-title">{{ location.title }}</div>
+      <div class="location-description">{{ location.description }}</div>
       <iframe
         class="location-map"
         id="map"
@@ -49,8 +49,14 @@ export default {
       )
     );
 
+    const header = await contentful.getEntries({
+      content_type: "header",
+      include: 3
+    });
+
     return {
-      location: location.items[0].fields
+      location: location.items[0].fields,
+      header: header.items[0].fields
     };
   }
 };

@@ -1,9 +1,9 @@
 <template>
   <div class="home-container">
-    <Header />
+    <Header :header="header" />
     <main class="home">
-      <div class="home-title">{{home.title}}</div>
-      <div class="home-description">{{home.description}}</div>
+      <div class="home-title">{{ home.title }}</div>
+      <div class="home-description">{{ home.description }}</div>
     </main>
     <BookingWidget v-if="!loading" />
     <modal
@@ -77,15 +77,20 @@ export default {
       )
     );
 
+    const header = await contentful.getEntries({
+      content_type: "header",
+      include: 3
+    });
+
     return {
       home: home.items[0].fields,
       voucher: voucher.items[0].fields.voucher,
-      showVoucher: voucher.items[0].fields.isVisible
+      showVoucher: voucher.items[0].fields.isVisible,
+      header: header.items[0].fields
     };
   }
 };
 </script>
-
 
 <style lang="scss">
 .home-container {

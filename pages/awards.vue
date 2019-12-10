@@ -1,16 +1,22 @@
 <template>
   <div class="awards-container">
-    <Header />
+    <Header :header="header" />
     <main class="awards">
-      <div class="awards-title">{{awards.title}}</div>
-      <div class="awards-description">{{awards.description}}</div>
+      <div class="awards-title">{{ awards.title }}</div>
+      <div class="awards-description">{{ awards.description }}</div>
       <div class="awards-items">
-        <div class="awards-items-item" v-for="award in awards.blocks" v-bind:key="award.fields.id">
+        <div
+          class="awards-items-item"
+          v-for="award in awards.blocks"
+          v-bind:key="award.fields.id"
+        >
           <div class="awards-items-item-image">
             <img v-bind:src="award.fields.companyLogo.fields.file.url" />
           </div>
           <div class="awards-items-item-title">{{ award.fields.title }}</div>
-          <div class="awards-items-item-description">{{ award.fields.description }}</div>
+          <div class="awards-items-item-description">
+            {{ award.fields.description }}
+          </div>
           <div class="awards-items-item-rating">
             <img v-bind:src="award.fields.rating.fields.file.url" />
           </div>
@@ -19,7 +25,6 @@
     </main>
   </div>
 </template>
-
 
 <script>
 import Header from "~/components/header.vue";
@@ -53,8 +58,14 @@ export default {
       )
     );
 
+    const header = await contentful.getEntries({
+      content_type: "header",
+      include: 3
+    });
+
     return {
-      awards: awards.items[0].fields
+      awards: awards.items[0].fields,
+      header: header.items[0].fields
     };
   }
 };

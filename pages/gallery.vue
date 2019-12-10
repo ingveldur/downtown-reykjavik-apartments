@@ -1,16 +1,15 @@
 <template>
   <div class="gallery-container">
-    <Header />
+    <Header :header="header" />
     <main class="gallery">
-      <div class="gallery-title">{{gallery.title}}</div>
-      <div class="gallery-description">{{gallery.description}}</div>
+      <div class="gallery-title">{{ gallery.title }}</div>
+      <div class="gallery-description">{{ gallery.description }}</div>
       <div class="gallery-swiper" v-if="images">
         <Swiper :images="images" />
       </div>
     </main>
   </div>
 </template>
-
 
 <script>
 import contentful from "~/plugins/contentful.js";
@@ -42,6 +41,11 @@ export default {
       )
     );
 
+    const header = await contentful.getEntries({
+      content_type: "header",
+      include: 3
+    });
+
     const images = [];
 
     gallery.items[0].fields.blocks[0].fields.images.forEach(image => {
@@ -53,12 +57,12 @@ export default {
 
     return {
       gallery: gallery.items[0].fields,
-      images: images
+      images: images,
+      header: header.items[0].fields
     };
   }
 };
 </script>
-
 
 <style lang="scss">
 .gallery-container {

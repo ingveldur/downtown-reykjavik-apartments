@@ -12,31 +12,46 @@
           <img v-bind:src="getLogo()" />
         </NuxtLink>
         <NuxtLink
-          v-for="link in header.links.filter(l => l.fields.id !== 'tours' && l.fields.id !== 'tripadvisor')"
-          v-bind:class="`${getClass()} ${link.fields.id === $route.name ? 'selected-route' : ''} header-center-link`"
+          v-for="link in header.links.filter(
+            l => l.fields.id !== 'tours' && l.fields.id !== 'tripadvisor'
+          )"
+          v-bind:class="
+            `${getClass()} ${
+              link.fields.id === $route.name ? 'selected-route' : ''
+            } header-center-link`
+          "
           v-bind:key="link.fields.id"
           v-bind:to="link.fields.url"
-        >{{link.fields.label}}</NuxtLink>
+          >{{ link.fields.label }}</NuxtLink
+        >
         <a
           v-bind:class="`${getClass()} header-center-link`"
-          v-bind:href="header.links.find(l => l.fields.id === 'tours').fields.url"
-        >{{header.links.find(l => l.fields.id === 'tours').fields.label}}</a>
+          v-bind:href="
+            header.links.find(l => l.fields.id === 'tours').fields.url
+          "
+          >{{ header.links.find(l => l.fields.id === "tours").fields.label }}</a
+        >
         <a
           v-bind:class="`${getClass()} header-center-link`"
-          v-bind:href="header.links.find(l => l.fields.id === 'tripadvisor').fields.url"
-        >{{header.links.find(l => l.fields.id === 'tripadvisor').fields.label}}</a>
+          v-bind:href="
+            header.links.find(l => l.fields.id === 'tripadvisor').fields.url
+          "
+          >{{
+            header.links.find(l => l.fields.id === "tripadvisor").fields.label
+          }}</a
+        >
       </div>
       <div class="header-right">
         <div v-bind:class="`${getClass()} header-right-link`">
           <a v-bind:href="'mailto:' + header.email.fields.url">
             <img v-bind:src="header.email.fields.icon.fields.file.url" />
-            {{header.email.fields.label}}
+            {{ header.email.fields.label }}
           </a>
         </div>
         <div v-bind:class="`${getClass()} header-right-link`">
           <a v-bind:href="'tel:' + header.phone.fields.url">
             <img v-bind:src="header.phone.fields.icon.fields.file.url" />
-            {{header.phone.fields.label}}
+            {{ header.phone.fields.label }}
           </a>
         </div>
       </div>
@@ -49,6 +64,7 @@ import contentful from "~/plugins/contentful.js";
 import HamburgerMenu from "~/components/hamburger-menu.vue";
 
 export default {
+  props: ["header"],
   components: {
     HamburgerMenu
   },
@@ -66,17 +82,8 @@ export default {
   },
   data: function() {
     return {
-      header: null,
       currentRoute: ""
     };
-  },
-  async created() {
-    const header = await contentful.getEntries({
-      content_type: "header",
-      include: 3
-    });
-
-    this.header = header.items[0].fields;
   },
   mounted() {
     this.currentRoute = this.$route.name;
