@@ -22,29 +22,31 @@
           "
           v-bind:key="link.fields.id"
           v-bind:to="link.fields.url"
-          >{{ link.fields.label }}</NuxtLink
-        >
+        >{{ link.fields.label }}</NuxtLink>
         <a
-          v-bind:class="`${getClass()} header-center-link`"
+          v-bind:class="
+            `${getClass()} ${
+              $route.name === 'terms' ? 'selected-route' : ''
+            } header-center-link`
+          "
           v-bind:href="'terms'"
-          >Terms</a
-        >
+        >Terms</a>
         <a
           v-bind:class="`${getClass()} header-center-link`"
           v-bind:href="
             header.links.find(l => l.fields.id === 'tours').fields.url
           "
-          >{{ header.links.find(l => l.fields.id === "tours").fields.label }}</a
-        >
+        >{{ header.links.find(l => l.fields.id === "tours").fields.label }}</a>
         <a
           v-bind:class="`${getClass()} header-center-link`"
           v-bind:href="
             header.links.find(l => l.fields.id === 'tripadvisor').fields.url
           "
-          >{{
-            header.links.find(l => l.fields.id === "tripadvisor").fields.label
-          }}</a
         >
+          {{
+          header.links.find(l => l.fields.id === "tripadvisor").fields.label
+          }}
+        </a>
       </div>
       <div class="header-right">
         <div v-bind:class="`${getClass()} header-right-link`">
