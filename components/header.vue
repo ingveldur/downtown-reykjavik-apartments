@@ -26,6 +26,11 @@
         >
         <a
           v-bind:class="`${getClass()} header-center-link`"
+          v-bind:href="'terms'"
+          >Terms</a
+        >
+        <a
+          v-bind:class="`${getClass()} header-center-link`"
           v-bind:href="
             header.links.find(l => l.fields.id === 'tours').fields.url
           "
