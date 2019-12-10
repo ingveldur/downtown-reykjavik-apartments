@@ -7,7 +7,7 @@
   "dependencies": {
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/markdownit": "^1.2.6",
-    "contentful": "^7.9.1",
+    "contentful": "^7.10.0",
     "hooper": "^0.3.4",
     "node-sass": "^4.12.0",
     "nuxt": "^2.9.2",
