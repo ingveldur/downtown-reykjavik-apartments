@@ -1,9 +1,7 @@
 <template>
   <div>
     <div class="hamburger-menu">
-      <a href="javascript:void(0)" class="hamburger-menu-close" @click="close"
-        >&times;</a
-      >
+      <a href="javascript:void(0)" class="hamburger-menu-close" @click="close">&times;</a>
       <NuxtLink class="hamburger-menu-link" to="/">Home</NuxtLink>
 
       <NuxtLink
@@ -13,41 +11,35 @@
         )"
         v-bind:key="link.fields.id"
         v-bind:to="link.fields.url"
-        >{{ link.fields.label }}</NuxtLink
-      >
-      <a class="hamburger-menu-link" v-bind:href="'terms'">Terms</a>
+      >{{ link.fields.label }}</NuxtLink>
+      <a class="hamburger-menu-link" v-bind:href="'/terms'">Terms</a>
       <a
         class="hamburger-menu-link"
         v-bind:href="header.links.find(l => l.fields.id === 'tours').fields.url"
-        >{{ header.links.find(l => l.fields.id === "tours").fields.label }}</a
-      >
+      >{{ header.links.find(l => l.fields.id === "tours").fields.label }}</a>
       <a
         class="hamburger-menu-link"
         v-bind:href="
           header.links.find(l => l.fields.id === 'tripadvisor').fields.url
         "
-        >{{
-          header.links.find(l => l.fields.id === "tripadvisor").fields.label
-        }}</a
       >
+        {{
+        header.links.find(l => l.fields.id === "tripadvisor").fields.label
+        }}
+      </a>
       <div class="hamburger-menu-bottom">
         <a
           class="hamburger-menu-link"
           v-bind:href="'mailto:' + header.email.fields.url"
-          >{{ header.email.fields.label }}</a
-        >
+        >{{ header.email.fields.label }}</a>
         <a
           class="hamburger-menu-link"
           v-bind:href="'tel:' + header.phone.fields.url"
-          >{{ header.phone.fields.url }}</a
-        >
+        >{{ header.phone.fields.url }}</a>
       </div>
     </div>
 
-    <button
-      v-bind:class="`${this.currentRoute} hamburger-menu-button`"
-      @click="open"
-    >
+    <button v-bind:class="`${this.currentRoute} hamburger-menu-button`" @click="open">
       <span></span>
       <span></span>
       <span></span>

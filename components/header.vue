@@ -29,7 +29,7 @@
               $route.name === 'terms' ? 'selected-route' : ''
             } header-center-link`
           "
-          v-bind:href="'terms'"
+          v-bind:href="'/terms'"
         >Terms</a>
         <a
           v-bind:class="`${getClass()} header-center-link`"
