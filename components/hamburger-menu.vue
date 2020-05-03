@@ -32,10 +32,14 @@
           class="hamburger-menu-link"
           v-bind:href="'mailto:' + header.email.fields.url"
         >{{ header.email.fields.label }}</a>
-        <a
+        <!-- <a
           class="hamburger-menu-link"
           v-bind:href="'tel:' + header.phone.fields.url"
-        >{{ header.phone.fields.url }}</a>
+        >{{ header.phone.fields.url }}</a>-->
+        <a class="hamburger-menu-link" v-bind:href="'tel:+3544456777'">
+          +354 445 6777
+          <!-- {{ header.phone.fields.url }} -->
+        </a>
       </div>
     </div>
 

@@ -55,10 +55,17 @@
             {{ header.email.fields.label }}
           </a>
         </div>
-        <div v-bind:class="`${getClass()} header-right-link`">
+        <!-- <div v-bind:class="`${getClass()} header-right-link`">
           <a v-bind:href="'tel:' + header.phone.fields.url">
             <img v-bind:src="header.phone.fields.icon.fields.file.url" />
             {{ header.phone.fields.label }}
+          </a>
+        </div>-->
+        <div v-bind:class="`${getClass()} header-right-link`">
+          <a v-bind:href="'tel:+3544456777'">
+            <img v-bind:src="header.phone.fields.icon.fields.file.url" />
+            <!-- {{ header.phone.fields.label }} -->
+            +354 445 6777
           </a>
         </div>
       </div>
