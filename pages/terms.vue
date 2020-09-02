@@ -107,22 +107,16 @@
 
         <h4>3. Bookings & Cancelation Policy</h4>
         <p>
-          Individuals: Cancellations are free of charge 14 days prior to
-          arrival. All bookings must be 100% pre-paid of the total amount 13
-          days prior to arrival and are non-refundable.
+          Cancellation is free until 1 day prior to arrival date. Standard reservations are charged 1 day prior to arrival and are then non-refundable.
         </p>
         <p>
-          Groups (3 apartments or more): Cancellation is free of charge up to 6
-          weeks before arrival. All bookings must per-pay a 50% non-refundable
-          deposit of the total amount 6 weeks prior to arrival. If cancelled
-          between 2-6 weeks before arrival, the 50% deposit is non-refundable.
-          The remaining 50% of the total amount must be pre-paid 13 days prior
-          to arrival and is non-refundable.
+          Groups: when booking 3 apartments or more we require a 50% non-refundable pre-payment of the total amount 4 weeks prior to arrival. The remaining amount is charged 7 days prior to arriving day and is non-refundable. Group bookings can be cancelled within 48-hours of making the reservation if the terms are not acceptable.
         </p>
         <p>
-          In case of relocation Downtown Reykjavík Apartments is considered
-          non-liable for compensation as long as it can provide accommodation of
-          the same or superior standard or category.
+          Non-refundable reservations are not eligible for a refund under any circumstances.
+        </p>
+        <p>
+          We accept VISA and Euro/Mastercard.
         </p>
       </div>
     </main>
