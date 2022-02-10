@@ -9,7 +9,7 @@
     "@nuxtjs/markdownit": "^1.2.6",
     "contentful": "^7.10.0",
     "hooper": "^0.3.4",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "nuxt": "^2.9.2",
     "sass-loader": "^8.0.0",
     "vue-awesome-swiper": "^3.1.3",
